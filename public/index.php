@@ -1,23 +1,20 @@
 <?php
-require 'vendor/autoload.php';
-
-use Carbon\Carbon;
-
+require_once '../vendor/autoload.php';
 ?>
 
 <html lang="pt-br">
 
 <head>
     <title>Início</title>
-    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="../public/assets/css/index.css">
     <?php
-    require_once "includes/head.php";
+    require_once "../views/includes/head.php";
     ?>
 </head>
 
 <body>
     <?php
-    require "includes/navbar.php";
+    require "../views/includes/navbar.php";
     ?>
     <main>
         <div class="lateral-cards">
@@ -34,7 +31,7 @@ use Carbon\Carbon;
         <div class="main-cards"></div>
     </main>
     <?php
-    require_once "includes/scripts.php";
+    require_once "../views/includes/scripts.php";
     ?>
 </body>
 

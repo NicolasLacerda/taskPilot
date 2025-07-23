@@ -3,13 +3,13 @@
 session_start();
 
 if (!empty($_SESSION['mail'])) {
-    $url = "/pages/accountPage.php";
+    $url = "../../views/pages/accountPage.php";
 } else {
-    $url = "/pages/loginPage.php";
+    $url = "../../views/pages/loginPage.php";
 }
 ?>
 
-<link rel="stylesheet" href="/css/navbar.css">
+<link rel="stylesheet" href="../public/assets/css/navbar.css">
 
 <div class="navbar px-4 sticky-top bg-white .navbar-expand-lg">
     <button class="navbar-toggler border-0">
@@ -17,7 +17,7 @@ if (!empty($_SESSION['mail'])) {
         </span>
     </button>
 
-    <a class="navbar-brand" href="index.php">
+    <a class="navbar-brand" href="../public/index.php">
         <svg id="logo" viewBox="0 0 198.685 198.685" xml:space="preserve">
             <g>
                 <path d="M196.785,75.856L141.647,20.78c-2.521-2.524-6.619-2.524-9.146,0L99.31,53.966L66.142,20.78
@@ -38,9 +38,9 @@ if (!empty($_SESSION['mail'])) {
         <a href="#"><i class="bi bi-bell"></i></a>
         <a href="#"><i class="bi bi-plus-circle"></i></a>
         <a id="profile" href="<?php echo $url; ?>">
-            <img src="imgs/profile.jpeg" alt="">
+            <img src="../public/imgs/profile.jpeg" alt="">
             <div class="status"></div>
         </a>
-        <a id="exit" href="configs\php\logout.php"><i class="bi bi-power"></i></a>
+        <a id="exit" href="../src/Models/Logout.php"><i class="bi bi-power"></i></a>
     </div>
 </div>

@@ -27,14 +27,14 @@ class ComposerStaticInitf6d6eab7a679d0d3f38b8188badc384f
         array (
             'Psr\\Clock\\' => 10,
         ),
-        'N' => 
-        array (
-            'Nicol\\TaskPilot\\' => 16,
-        ),
         'C' => 
         array (
             'Carbon\\Doctrine\\' => 16,
             'Carbon\\' => 7,
+        ),
+        'A' => 
+        array (
+            'App\\' => 4,
         ),
     );
 
@@ -63,10 +63,6 @@ class ComposerStaticInitf6d6eab7a679d0d3f38b8188badc384f
         array (
             0 => __DIR__ . '/..' . '/psr/clock/src',
         ),
-        'Nicol\\TaskPilot\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/src',
-        ),
         'Carbon\\Doctrine\\' => 
         array (
             0 => __DIR__ . '/..' . '/carbonphp/carbon-doctrine-types/src/Carbon/Doctrine',
@@ -74,6 +70,10 @@ class ComposerStaticInitf6d6eab7a679d0d3f38b8188badc384f
         'Carbon\\' => 
         array (
             0 => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon',
+        ),
+        'App\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src',
         ),
     );
 

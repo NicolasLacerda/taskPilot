@@ -1,6 +1,8 @@
 <?php
+session_start();
+
 if (!empty($_SESSION['mail'])) {
-    header("Location: /pages/accountPage.php");
+    header("Location: /views/pages/accountPage.php");
     exit();
 }
 ?>
@@ -11,7 +13,7 @@ if (!empty($_SESSION['mail'])) {
 
 <head>
     <title>Register Page</title>
-    <link rel="stylesheet" href="/css/register.css">
+    <link rel="stylesheet" href="/public/assets/css/register.css">
     <?php
     require_once "../includes/head.php";
     ?>
@@ -20,7 +22,7 @@ if (!empty($_SESSION['mail'])) {
 <body>
     <div class="menu w-100 d-flex flex-row">
         <div>
-            <a href="../index.php"
+            <a href="../../public/index.php"
                 class="text-decoration-none backBtn ms-5 h-100 flex-row d-flex justify-content-center align-items-center gap-2 border-0 bg-transparent">
                 <i class="bi bi-chevron-left"></i>
                 <p class="m-0">Home page</p>
@@ -51,7 +53,7 @@ if (!empty($_SESSION['mail'])) {
                 <p class="register-subtitle">Registre sua conta agora mesmo</p>
             </div>
             <form class="form-control w-100 border-0 d-flex justify-content-start align-items-center mt-2 flex-column"
-                action="../configs/php/userRegistration.php" method="post">
+                action="/../../../src/Handlers/RegisterUserHandler.php" method="post">
                 <div class="d-flex justify-content-start align-items-center flex-row w-100">
                     <div class="w-100 d-flex flex-column justify-content-center align-items-center">
                         <label class="px-3 mb-1">Nome</label>
@@ -72,7 +74,8 @@ if (!empty($_SESSION['mail'])) {
                 </div>
                 <button class="registerBtn" type="submit" value="send">Registrar</button>
             </form>
-            <a class="accountLink text-decoration-none text-black mt-2" href="loginPage.php">Já possui uma conta?</a>
+            <a class="accountLink text-decoration-none text-black mt-2" href="/views/pages/loginPage.php">Já possui
+                uma conta?</a>
         </div>
     </main>
 </body>

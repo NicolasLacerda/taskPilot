@@ -1,6 +1,8 @@
 <?php
 
-class Usuario
+namespace App\Models;
+
+class User
 {
     private $name, $phone, $birthday, $mail, $password, $confirmPassword;
 

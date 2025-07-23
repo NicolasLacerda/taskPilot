@@ -1,25 +1,22 @@
 <?php
 
+namespace App\Controllers;
+
 session_start();
 
-require_once "user.php";
-require_once "connection.php";
+require_once "../../vendor/autoload.php";
 
-// Se a variável mail dentro de session estiver com algo, redirecionar para accountPage
-if (!empty($_SESSION['mail'])) {
-    header("Location: /pages/accountPage.php");
-    exit;
-}
+use App\Models\User;
 
-class RegisterUser
+class RegisterUserController
 {
     protected $password, $confirmPassword, $name, $phone, $birthday, $mail;
 
     public function registration()
     {
 
-        // Instância da classe Usuario, passando valores para os parâmetros do construct.
-        $newUser = new Usuario(
+        // Instância da classe User, passando valores para os parâmetros do construct.
+        $newUser = new User(
             $_POST["name"] ?? '',
             $_POST["phone"] ?? '',
             $_POST["birthday"] ?? '',
@@ -45,35 +42,3 @@ class RegisterUser
         };
     }
 }
-
-class ConnectWithServer extends RegisterUser
-{
-    public function connection()
-    {
-        try {
-            $pdo = Connection::pdoCode();
-
-            if ($this->registration()) {
-                $smtp = $pdo->prepare("INSERT INTO `users`(`name`, `phone`, `birthday`, `mail`, `password`) VALUES (:name, :phone, :birthday, :mail, :password)");
-
-
-                $smtp->execute([
-                    ':name'     => $this->name,
-                    ':phone'    => $this->phone,
-                    ':birthday' => $this->birthday,
-                    ':mail'     => $this->mail,
-                    ':password' => $this->password
-                ]);
-
-
-                header('Location: /pages/login.php');
-                exit();
-            }
-        } catch (PDOException $e) {
-            echo $e->getMessage();
-        }
-    }
-}
-
-$connectWithSQL = new ConnectWithServer();
-$connectWithSQL->connection();

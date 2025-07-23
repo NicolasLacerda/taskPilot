@@ -1,6 +1,8 @@
 <?php
+session_start();
+
 if (!empty($_SESSION['mail'])) {
-    header("Location: /pages/accountPage.php");
+    header("Location: /views/pages/accountPage.php");
     exit();
 }
 ?>
@@ -10,7 +12,7 @@ if (!empty($_SESSION['mail'])) {
 
 <head>
     <title>Login Page</title>
-    <link rel="stylesheet" href="/css/login.css">
+    <link rel="stylesheet" href="/public/assets/css/login.css">
     <?php
     require_once "../includes/head.php";
     ?>
@@ -19,7 +21,7 @@ if (!empty($_SESSION['mail'])) {
 <body>
     <div class="menu w-100 d-flex flex-row">
         <div>
-            <a href="../index.php"
+            <a href="../../public/index.php"
                 class="text-decoration-none backBtn ms-5 h-100 flex-row d-flex justify-content-center align-items-center gap-2 border-0 bg-transparent">
                 <i class="bi bi-chevron-left"></i>
                 <p class="m-0">Home page</p>
@@ -49,7 +51,7 @@ if (!empty($_SESSION['mail'])) {
                 </h4>
             </div>
             <form class="form-control w-100 border-0 d-flex justify-content-start align-items-center flex-column"
-                action="../configs/php/userLogin.php" method="post">
+                action="/../../../src/Handlers/LoginUserHandler.php" method="post">
                 <div class="d-flex justify-content-start align-items-center flex-row w-100">
                     <div class="w-100 d-flex flex-column justify-content-center align-items-center">
                         <label class="px-3 mb-1">Email</label>
@@ -60,7 +62,8 @@ if (!empty($_SESSION['mail'])) {
                 </div>
                 <button class="registerBtn" type="submit" value="send">Login</button>
             </form>
-            <a class="accountLink text-decoration-none text-black mt-2" href="registerPage.php">Não possui uma
+            <a class="accountLink text-decoration-none text-black mt-2" href="/views/pages/registerPage.php">Não
+                possui uma
                 conta?</a>
         </div>
     </main>
