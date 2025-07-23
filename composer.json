@@ -1,0 +1,16 @@
+{
+    "name": "nicol/task-pilot",
+    "autoload": {
+        "psr-4": {
+            "Nicol\\TaskPilot\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "nicolas"
+        }
+    ],
+    "require": {
+        "nesbot/carbon": "^3.10"
+    }
+}
