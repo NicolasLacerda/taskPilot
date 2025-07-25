@@ -1,4 +1,7 @@
 <?php
+
+namespace App\Handlers;
+
 session_start();
 
 require_once "../../vendor/autoload.php";
@@ -19,12 +22,14 @@ class LoginUserHandler extends LoginUserController
             $smtp->execute([':mail'     => $this->mail]);
 
             if ($smtp->rowCount() === 1) {
-                $user = $smtp->fetch(PDO::FETCH_ASSOC);
+                $user = $smtp->fetch(\PDO::FETCH_ASSOC);
 
                 // Verifica a senha usando password_verify
                 if (password_verify($this->password, $user['password'])) {
                     $_SESSION['mail'] = $user['mail'];
-                    $_SESSION['name'] = $user['name']; // opcional
+                    $_SESSION['name'] = $user['name'];
+                    $_SESSION['phone'] = $user['phone'];
+                    $_SESSION['birthday'] = $user['birthday'];
                     header("Location: /views/pages/accountPage.php");
                     exit;
                 } else {

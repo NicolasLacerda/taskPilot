@@ -1,6 +1,6 @@
-let aberto = true;
+$(".navbar-toggler").on("click", function lateralCards() {
+  let aberto = true;
 
-$(".navbar-toggler").on("click", function () {
   if (aberto) {
     $(".lateral-cards").animate(
       {
@@ -25,4 +25,8 @@ $(".navbar-toggler").on("click", function () {
     );
   }
   aberto = !aberto;
+});
+
+$(".add-card").on("click", function addCard() {
+  $(".cards-board").append("<div class='card'>teste</div>");
 });

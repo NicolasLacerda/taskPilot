@@ -28,7 +28,20 @@ require_once '../vendor/autoload.php';
                 </div>
             </div>
         </div>
-        <div class="main-cards"></div>
+        <div class="main-cards">
+            <div class="topbar gap-2">
+                <span class="add-card bi bi-plus"></span>
+                <span class="remove-card bi bi-trash3"></span>
+            </div>
+            <div class="cards-board">
+                <div class="card">
+                    <input type="text" placeholder="Titúlo" name="title">
+                    <label>
+                        <input type="checkbox" name="description">Teste
+                    </label>
+                </div>
+            </div>
+        </div>
     </main>
     <?php
     require_once "../views/includes/scripts.php";
